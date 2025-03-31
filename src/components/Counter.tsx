@@ -1,4 +1,4 @@
-import React, { useState}  from "react";
+import React, { useEffect, useState}  from "react";
 
 const Counter: React.FC = () => {
   const [count, setCount] = useState<number>(0);
@@ -8,6 +8,25 @@ const Counter: React.FC = () => {
   const decrement = () => { setCount(prev => prev - 1); };
 
   const reset = () => { setCount(0); };
+
+  useEffect(() => {
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (event.key === 'ArrowUp') {
+        increment();
+      } else if (event.key === 'ArrowDown') {
+        decrement();
+      } else if (event.key === 'r') {
+        reset();
+      }
+    }
+
+    window.addEventListener('keydown', handleKeyDown);
+
+    return () => {
+      window.removeEventListener('keydown', handleKeyDown);
+    }
+
+  }, []);
 
   return (
     <section>
