@@ -1,5 +1,6 @@
-import {BrowserRouter, NavLink, Route, Routes} from "react-router-dom";
-import CounterPage from "./CounterPage.tsx";
+import {BrowserRouter, NavLink, Route, Routes} from 'react-router-dom';
+import CounterPage from './CounterPage.tsx';
+import ContactPage from "./ContactPage.tsx";
 
 const Home = ()=> {
   return (
@@ -13,7 +14,7 @@ const Home = ()=> {
       <Routes>
         <Route path="/" element={<Landing />} />
         <Route path="/counter" element={<CounterPage />} />
-        {/*<Route path="/form" element={<Form />} />*/}
+        <Route path="/form" element={<ContactPage />} />
       </Routes>
     </BrowserRouter>
   );
