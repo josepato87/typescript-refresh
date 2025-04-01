@@ -1,12 +1,7 @@
-import Counter from './components/Counter';
+import Home from './pages/Home';
 
 function App() {
-  return (
-    <main style={{ textAlign: 'center', marginTop: '50px' }}>
-      <h1>Welcome to the React App!</h1>
-      <Counter />
-    </main>
-  );
+  return <Home />;
 }
 
 export default App;
