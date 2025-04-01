@@ -1,25 +1,17 @@
-import { useEffect, useState } from 'react';
+import {useContactForm} from '../hooks/useContactForm.ts';
 
 const ContactForm: React.FC = () => {
-  const [name, setName] = useState<string>('');
-  const [email, setEmail] = useState<string>('');
-  const [message, setMessage] = useState<string>('');
-  const [validEmail, setValidEmail] = useState<boolean>(false);
-  const [submitted, setSubmitted] = useState<boolean>(false);
-
-  useEffect(() => {
-    const isValidEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
-    setValidEmail(isValidEmail || email === '');
-  }, [email]);
-
-  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
-    event.preventDefault();
-    if (!name || !email || !validEmail) {
-      alert('Please fill out all fields');
-      return;
-    }
-    setSubmitted(true);
-  }
+  const {
+    name,
+    email,
+    message,
+    validEmail,
+    submitted,
+    setName,
+    setEmail,
+    setMessage,
+    handleSubmit
+  } = useContactForm()
 
   return (
     <form onSubmit={handleSubmit} style={{display: 'inline-block', textAlign: 'left'}}>
